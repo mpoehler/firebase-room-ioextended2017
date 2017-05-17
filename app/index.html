@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firebase Room IOExtended 2007</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h3>Lego-IoT-Firebase Codelab - hack only</h3>
+    Read the source code! And watch the console!
+
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+    var config = {
+      apiKey: "AIzaSyAT-rnI6MBSA2-xscblBPYVHJfHU6yBpFQ",
+      databaseURL: "https://fir-roomioextended2017.firebaseio.com"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+    // ######################################
+    // See what you can do in the lines below
+    // ######################################
+
+
+    // listen for changes of light detector
+    firebase.database().ref('sunlight').on('value', function(snapshot) {
+      console.log('sunlight: ' + snapshot.val());
+    });
+
+    // listen for button changes
+    firebase.database().ref('pushbutton').on('value', function(snapshot) {
+      console.log('button: ' + snapshot.val());
+    });
+
+    //database.ref('brrr').set(1);  // vibrate on
+    //database.ref('brrr').set(0);  // virbate off
+
+    //database.ref('cooldown').set(1);  // fan on
+    //database.ref('cooldown').set(0);  // fan off
+
+    //database.ref('redlight').set(1); // redlight on
+    //database.ref('redlight').set(0); // redlight off
+
+    </script>
+  </body>
+</html>
